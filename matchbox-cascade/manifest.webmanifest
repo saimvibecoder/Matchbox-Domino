@@ -1,0 +1,33 @@
+{
+  "name": "Matchbox Cascade",
+  "short_name": "Cascade",
+  "description": "Draw trails of matchboxes and glass dominoes, push the first one, and watch them topple. 18 levels, 3 difficulties, free-build spirals and collectible matchboxes.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1c110a",
+  "theme_color": "#1c110a",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
