@@ -806,11 +806,11 @@ function renderMenu(){
     for(let i=a;i<z;i++){
       const L=LEVELS[i],b=document.createElement('button');const lock=L.bonus&&!unlocked('bonus');b.className='tile'+(lock?' locked':'');const s=best[bestKey(i)]||0;
       b.innerHTML=`<span class="n">${i+1}</span><span class="nm">${L.name}</span><span class="dots">${[0,1,2].map(k=>`<i class="${k<s?'on':''}"></i>`).join('')}</span>`;
-      if(lock){b.innerHTML=`<span class="n">${i+1}</span><span class="nm">${L.name}</span><span class="lk">Collect 30 boxes</span>`}
+      if(lock){b.innerHTML=`<span class="n">${i+1}</span><span class="nm">${L.name}</span><span class="lk">Collect 5 designs</span>`}
       b.onclick=()=>startLevel(i);g.appendChild(b)}
   }
 }
-function startLevel(i){if(i>=0&&LEVELS[i].bonus&&!unlocked('bonus')){toast(`Collect all 30 matchbox designs to unlock bonus levels. You have ${ownedN()}.`);return}audio();$('#equip').hidden=true;stopMusic();demo=false;$('#menu').hidden=true;$('#result').hidden=true;$('#combo').hidden=true;loadLevel(i<0?SANDBOX:LEVELS[i],i);showHint(2000);}
+function startLevel(i){if(i>=0&&LEVELS[i].bonus&&!unlocked('bonus')){toast(`Collect 5 different matchbox designs to unlock bonus levels. You have ${ownedN()}.`);return}audio();$('#equip').hidden=true;stopMusic();demo=false;$('#menu').hidden=true;$('#result').hidden=true;$('#combo').hidden=true;loadLevel(i<0?SANDBOX:LEVELS[i],i);showHint(2000);}
 let hintT=0;
 function showHint(ms){const h=$('#hint');h.textContent=LV.hint;h.classList.add('show');$('#bulbBtn').classList.add('on');clearTimeout(hintT);hintT=setTimeout(hideHint,ms)}
 function hideHint(){clearTimeout(hintT);$('#hint').classList.remove('show');$('#bulbBtn').classList.remove('on')}
@@ -1381,7 +1381,7 @@ applySkin();updWallet();
 /* ---------- rewards: equip perks, trade-ins, milestones ---------- */
 const PERK={R:{boxes:3,bridge:0,repush:0,txt:'+3 boxes'},SR:{boxes:6,bridge:0,repush:0,txt:'+6 boxes'},SSR:{boxes:6,bridge:1,repush:0,txt:'+6 boxes and a bridge'},LR:{boxes:6,bridge:1,repush:1,txt:'+6 boxes, a bridge and a second push'}};
 const TRADE={R:1,SR:2,SSR:4,LR:8};
-const MILES=[{n:10,id:'gold',name:'Golden Ruler'},{n:20,id:'designs',name:'2 new designs'},{n:30,id:'bonus',name:'3 bonus levels'}];
+const MILES=[{n:10,id:'gold',name:'Golden Ruler'},{n:20,id:'designs',name:'2 new designs'},{n:5,id:'bonus',name:'3 bonus levels'}];
 const ownedN=()=>CAT.filter(d=>coll[d.id]>0).length;
 const unlocked=id=>ownedN()>=MILES.find(m=>m.id===id).n;
 let perkLeft={bridge:0,repush:0};
